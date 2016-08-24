@@ -1,0 +1,7 @@
+<div class="shows-list">
+	<div class="show" ng-repeat="show in $ctrl.shows">
+		<div class="downloads"><span class="fa fa-download"></span> {{show.downloads}}</div>
+		<div class="show-title">{{show.title}} {{show.location}}</div>
+		<div class="source"><span ng-show="show.isSoundboard" class="fa fa-sliders"></span> {{show.source}}</div>
+	</div>
+</div>

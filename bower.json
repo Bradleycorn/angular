@@ -1,0 +1,29 @@
+{
+  "name": "Sandbox",
+  "version": "0.1.0",
+  "authors": [
+    "Brad Ball <development@bradball.net>"
+  ],
+  "description": "A playground to test new things",
+  "license": "MIT",
+  "homepage": "http://localhost",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1",
+    "bootstrap": "~4",
+    "fontawesome": "~4",
+    "webfontloader": "~1",
+    "angular": "~1.5",
+    "angular-route": "~1.5",
+    "angular-resource": "~1.5",
+    "angular-messages": "~1.5",
+    "angular-sanitize": "~1.5",
+    "angular-mocks": "~1.5"
+  }
+}

@@ -1,0 +1,6 @@
+<ul class="nav nav-tabs" role="tabllist">
+	<li ng-repeat="year in $ctrl.years" class="nav-item">
+		<a class="nav-link" ng-class="{active: year.year == $ctrl.selectedYear}"  href="/{{year.year}}" role="tab">{{year.year}} ({{year.shows}})</a>
+	</li>
+</ul>
+

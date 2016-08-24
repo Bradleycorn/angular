@@ -1,0 +1,29 @@
+@import 'init';
+@import 'layout';
+
+.show {
+	padding: .5em .75em;
+
+	cursor: pointer;
+
+	&:hover {
+		background: $gray-lighter;
+	}
+
+	.downloads {float: right;}
+	.show-title {
+		font-weight: 700;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.source {
+		width: 100%;
+		white-space: nowrap;
+	  	overflow: hidden;
+  		text-overflow: ellipsis;
+  		color: $gray;
+  		font-size: .95em;
+	}
+}
