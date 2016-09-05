@@ -11,6 +11,9 @@ yearNav.controller('YearListController', ['$scope', '$route', '$routeParams', fu
 
 
 	self.setSelectedYear($route.current.params.year);
+
+
+
 	self.years = [
 		{
 			year: "1995",

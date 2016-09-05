@@ -1,10 +1,10 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT']."api/init-api.inc");
+require_once($_SERVER['DOCUMENT_ROOT']."_/inc/init-api.inc");
 require_once($_SERVER['DOCUMENT_ROOT']."api/classes/recording.inc");
 
 
-Class Show {
+Class Show implements JsonSerializable {
 
 	//An array of Reocording objects;
 	private $mRecordings = null;
@@ -22,7 +22,7 @@ Class Show {
 	}
 
 	public function addRecording($recording) {
-		if ($this->mReordings == null) {
+		if ($this->mRecordings == null) {
 			$this->mRecordings = array();
 		}
 
@@ -30,8 +30,8 @@ Class Show {
 		$this->mRecordings[] = $recording;
 	}
 
-	public function getYear($jsonItem) {
-		return getDate(strtotime($this->mDate))['year'];
+	public function getYear() {
+		return new Year(Year::parseYear($this->mDate));
 	}
 
 	public function getDate() {
@@ -39,7 +39,7 @@ Class Show {
 	}
 
 	public function getPrintDate() {
-		return date("m/d/Y",strtotime($this->mDate));
+		return gmdate("m-d-Y",strtotime($this->mDate));
 	}
 
 	public function getLocation() {
@@ -69,6 +69,17 @@ Class Show {
 		return false;
 	}
 
+	public function jsonSerialize() {
+		$arr = array(
+			"date" => $this->getPrintDate(),
+			"title" => $this->mTitle,
+			"location" => $this->mLocation,
+			"hasSoundboard" => $this->hasSoundboard(),
+			"recordings" => count($this->getRecordings())
+		);	
+
+		return (object) $arr;
+	}
 }
 
 ?>

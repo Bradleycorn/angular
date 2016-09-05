@@ -69,11 +69,13 @@
 		<!-- endbuild -->
 
 		<!-- build.js(src) /_/shows-app.min.js -->
+		<script src="/shows/main/main.module.js"></script>
 		<script src="/shows/main/main.controller.js"></script>
 		<script src="/shows/year-nav/year-nav.module.js"></script>
 		<script src="/shows/year-nav/year-nav.component.js"></script>
 		<script src="/shows/shows-list/shows-list.module.js"></script>
-		<script src="/shows/shows-list/shows-list.component.js"></script>
+		<script src="/shows/shows-list/shows-list.component.js"></script>		
+		<script src="/shows/core/shows.service.js"></script>
 		<script src="/shows/shows.app.js"></script>
 		<script src="/shows/shows.app.config.js"></script>
 		<!-- endbuild -->

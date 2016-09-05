@@ -1,5 +1,6 @@
 angular.module('showsApp', [
 	'ngRoute',
 	'yearNav',
-	'year'
+	'core.shows',
+	'main'
 ]);

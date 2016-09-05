@@ -1,12 +1,7 @@
-var Year = angular.module('year',[
-	'ngRoute',
-	'showsList'
-]);
+var main = angular.module('main');
 
-Year.controller('YearController', ['$scope', '$routeParams', function($scope, $routeParams) {
+main.controller('MainController', ['$scope', '$routeParams', 'showsList', 'recordingsList', function($scope, $routeParams, showsList, recordingsList) {
 
-	$scope.year = parseInt($routeParams.year, 10);
-	$scope.showList = ($scope.year >=1992 && $scope.year <= 1995);
-
+	$scope.showsList = showsList;
 
 }]);

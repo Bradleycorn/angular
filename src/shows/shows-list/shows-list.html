@@ -1,7 +1,7 @@
 <div class="shows-list">
-	<div class="show" ng-repeat="show in $ctrl.shows">
-		<div class="downloads"><span class="fa fa-download"></span> {{show.downloads}}</div>
-		<div class="show-title">{{show.title}} {{show.location}}</div>
-		<div class="source"><span ng-show="show.isSoundboard" class="fa fa-sliders"></span> {{show.source}}</div>
-	</div>
+	<a class="show" ng-repeat="show in $ctrl.shows" href="/{{$ctrl.year}}/{{show.date}}">
+		<div class="downloads"><span class="fa fa-download"></span> {{show.recordings}}</div>
+		<div class="show-title">{{show.date}} {{show.location}}</div>
+		<div class="source"><span ng-show="show.hasSoundboard" class="fa fa-sliders"></span> {{show.title}}</div>
+	</a>
 </div>

@@ -9,12 +9,26 @@ showsApp.config(['$locationProvider', '$routeProvider',
 		});
 
 		$routeProvider.
-		when('/', {
-			template: 'Select a year to see some shows.'
-		}).
-		when('/:year/:showDate?', {
+		when('/:year/:showDate?/:archiveId?', {
 			templateUrl: 'shows/main/main.view.html',
-			controller: 'YearController'
+			controller: 'MainController',
+			resolve: {
+				showsList: function(Shows, $route) {
+					return Shows.server.query({
+						year: $route.current.params.year
+					}).$promise;
+				},
+				recordingsList: function(Shows, $route) {
+					if ($route.current.params.showDate) {
+						return Shows.server.query({
+							year: $route.current.params.year,
+							date: $route.current.params.showDate
+						}).$promise;
+					} else {
+						return null;
+					}
+				}
+			}
 		}).
 		otherwise({
 			redirectTo: '/'

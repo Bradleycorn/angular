@@ -2,12 +2,15 @@
 @import 'layout';
 
 .show {
+	display: block;
 	padding: .5em .75em;
-
-	cursor: pointer;
+	color: $body-color;
+	text-decoration: none;
 
 	&:hover {
 		background: $gray-lighter;
+		color: $body-color;
+		text-decoration: none;
 	}
 
 	.downloads {float: right;}

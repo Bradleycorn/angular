@@ -3,7 +3,6 @@
 art
 dist
 node_modules
-src/_/bower
 src/_/css
 .DS_Store
 Thumbs.db

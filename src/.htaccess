@@ -1,4 +1,10 @@
+RewriteRule ^api/shows/(\d{4})?/?([^/]*)?/?([^/]*)?/?$  	/api/index.php?year=$1&show=$2&recording=$3	[NC,QSA,L]
+
+
 ## Rewrite anything that's not a file or directory, loading the root index.php.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/api/shows/(.*)
 RewriteRule ^(.+)$ 						/index.php 				[NC,QSA,L]
+
+

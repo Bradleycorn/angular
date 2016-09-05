@@ -1,14 +1,13 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT']."api/init-api.inc");
+require_once($_SERVER['DOCUMENT_ROOT']."_/inc/init-api.inc");
 
 
-Class Recording {
+Class Recording implements JsonSerializable {
 
 	private $mItem = null;
 
 	private $mShow = null;
-
 
 	function __construct($item, $show = null) {
 		$this->mItem = $item;
@@ -41,7 +40,7 @@ Class Recording {
 	}
  
 	public function getReviews() {
-		return $this->mItem->num_Reviews;
+		return $this->mItem->num_reviews;
 	}
  
 	public function getSource() {
@@ -55,8 +54,30 @@ Class Recording {
 	public function getShow() {
 		//TODO: Create a Show object for the Recording if it's null. This could be an intensive process.
 
+		if ($this->mShow == null) {
+			$this->mShow = new Show($this->mItem->date, $this->mItem->coverage, $this->mItem->title);
+		}
+
 		return $this->mShow;
 	} 
+
+	public function jsonSerialize() {
+		$arr = array(
+			"archiveId" => $this->getIdentifier(),
+			"isSoundboard" => $this->isSoundboard(),
+			"downloads" => $this->getDownloads(),
+			"rating" => $this->getRating(),
+			"setlist" => $this->getSetlist(),
+			"reviews" => $this->getReviews(),
+			"source" => $this->getSource(),
+			"title" => $this->getTitle(),
+			"location" => $this->getShow()->getLocation(),
+			"date" => $this->getShow()->getPrintDate()
+		);
+
+
+		return (object) $arr;
+	}
 
 }
 
